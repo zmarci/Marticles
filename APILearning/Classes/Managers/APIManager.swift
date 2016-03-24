@@ -23,7 +23,7 @@ class APIManager
     
     //MARK: HTTP request
     
-    func loadArticlesForKeyword(keyword: String) -> [Article]
+    func loadArticlesForKeyword(keyword: String, completion: (result: [Article]) -> Void)
     {
         let searchURL       = baseURLpreFix + keyword + baseURLpostFix + APIKey
         
@@ -63,13 +63,13 @@ class APIManager
                             articleArray.append(article)
                         }
                     }
+                    
+                    completion(result: articleArray)
             }
         }
         catch let error
         {
             print("got an error creating the request: \(error)")
         }
-        
-        return articleArray
     }
 }

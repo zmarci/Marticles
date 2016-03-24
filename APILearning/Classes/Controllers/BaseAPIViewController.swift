@@ -28,9 +28,20 @@ class BaseAPIViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
-        articleArray = APIManager.sharedInstance.loadArticlesForKeyword("budapest")
+        
+        APIManager.sharedInstance.loadArticlesForKeyword("budapest") { (result) -> Void in
+            
+            self.articleArray = result
+            
+            let sections = NSIndexSet(indexesInRange: NSMakeRange(0, self.tableView.numberOfSections))
+            self.tableView.reloadSections(sections, withRowAnimation: .Automatic)
+        }
         setupViews()
+    }
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidAppear(animated)
     }
     
     //MARK: IBActions
@@ -55,7 +66,7 @@ extension BaseAPIViewController: UITableViewDelegate
 {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
-        return 2
+        return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -64,8 +75,6 @@ extension BaseAPIViewController: UITableViewDelegate
         {
             case 0:
                 return articleArray.count
-            case 1:
-                return 1
             default:
                 return 0
         }
@@ -96,7 +105,6 @@ extension BaseAPIViewController: UITableViewDataSource
         cellIdentifier = articleCellID
         
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as? ArticleCell
-        
         if cell == nil
         {
             cell = ArticleCell(style: .Default, reuseIdentifier: cellIdentifier)

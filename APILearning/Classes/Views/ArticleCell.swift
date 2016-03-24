@@ -23,6 +23,11 @@ class ArticleCell: UITableViewCell
         super.awakeFromNib()
     }
     
+    override func prepareForReuse()
+    {
+        titleLabel.text = ""
+    }
+    
     //MARK: IBActions
     
 }
