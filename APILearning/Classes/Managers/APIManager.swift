@@ -8,38 +8,68 @@
 
 import Foundation
 import SwiftHTTP
+import SwiftyJSON
 
 class APIManager
 {
     //MARK: Variables
     
-    let baseURLpreFix   = "http://www.faroo.com/api?q="
-    let baseURLpostFix  = "&start=1&length=10&l=en&src=news&f=json"
-    var searchKeyWord   = "budapest"
+    static let sharedInstance   = APIManager()
+    private init() {}
+    
+    let baseURLpreFix           = "http://www.faroo.com/api?q="
+    let baseURLpostFix          = "&start=1&length=10&l=en&src=news&f=json"
+    let APIKey                  = "&key=-7fVUQwrapqkqjwjN6TCtZiWuko_"
     
     //MARK: HTTP request
     
-    func downloadShit()
+    func loadArticlesForKeyword(keyword: String) -> [Article]
     {
-        let searchURL = baseURLpreFix + searchKeyWord + baseURLpostFix
+        let searchURL       = baseURLpreFix + keyword + baseURLpostFix + APIKey
+        
+        var articleArray    = [Article]()
         
         do
         {
-            let opt = try HTTP.GET(searchURL)
-            opt.start { response in
+            let opt = try HTTP.New(searchURL, method: .GET, requestSerializer: JSONParameterSerializer())
+                opt.start { response in
                 
                 if let err = response.error
                 {
                     print("error: \(err.localizedDescription)")
                     return //also notify app of failure as needed
                 }
-                print("opt finished: \(response.description)")
-                //print("data is: \(response.data)") access the response of the data with response.data
+                
+                    let json = JSON(data: response.data)
+                    
+                    if let jsonResultsArray = json["results"].array
+                    {
+                        for item in jsonResultsArray
+                        {
+                            
+                            guard let domain = item["domain"].string, title = item["title"].string, date = item["date"].double, desc = item["kwic"].string, url = item["url"].string  else
+                            {
+                                return
+                            }
+                            
+                            var article     = Article()
+                            
+                            article.domain  = domain
+                            article.title   = title
+                            article.date    = NSDate(timeIntervalSince1970: date)
+                            article.desc    = desc
+                            article.url     = url
+                            
+                            articleArray.append(article)
+                        }
+                    }
             }
         }
         catch let error
         {
             print("got an error creating the request: \(error)")
         }
+        
+        return articleArray
     }
 }

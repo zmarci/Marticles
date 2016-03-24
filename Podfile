@@ -5,6 +5,7 @@ use_frameworks!
 target 'APILearning' do
 
 pod 'SwiftHTTP'
+pod 'SwiftyJSON'
 
 end
 

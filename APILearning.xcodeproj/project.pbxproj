@@ -13,6 +13,8 @@
 		7189970B1CA3EBD70078F3D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7189970A1CA3EBD70078F3D6 /* Assets.xcassets */; };
 		7189970E1CA3EBD70078F3D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7189970C1CA3EBD70078F3D6 /* LaunchScreen.storyboard */; };
 		7189971B1CA4014A0078F3D6 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7189971A1CA4014A0078F3D6 /* APIManager.swift */; };
+		71B702641CA411AB0018C34F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B702631CA411AB0018C34F /* Article.swift */; };
+		71B7026A1CA41BC70018C34F /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B702691CA41BC70018C34F /* ArticleCell.swift */; };
 		98407AB3141C3E6711C9806F /* Pods_APILearning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6200F89BA37F9B4B2AFED3A4 /* Pods_APILearning.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		7189970D1CA3EBD70078F3D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7189970F1CA3EBD70078F3D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7189971A1CA4014A0078F3D6 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = Classes/Managers/APIManager.swift; sourceTree = "<group>"; };
+		71B702631CA411AB0018C34F /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Article.swift; path = Classes/Models/Article.swift; sourceTree = "<group>"; };
+		71B702691CA41BC70018C34F /* ArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArticleCell.swift; path = Classes/Views/ArticleCell.swift; sourceTree = "<group>"; };
 		8B177B06042F0C3566E38ACC /* Pods-APILearning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APILearning.release.xcconfig"; path = "Pods/Target Support Files/Pods-APILearning/Pods-APILearning.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +120,8 @@
 		718997181CA3F1600078F3D6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				71B702681CA41BB40018C34F /* Views */,
+				71B702621CA411910018C34F /* Models */,
 				718997191CA401310078F3D6 /* Managers */,
 				718997161CA3F14B0078F3D6 /* Controller */,
 				718997151CA3F13B0078F3D6 /* Storyboard */,
@@ -129,6 +135,22 @@
 				7189971A1CA4014A0078F3D6 /* APIManager.swift */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		71B702621CA411910018C34F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				71B702631CA411AB0018C34F /* Article.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		71B702681CA41BB40018C34F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				71B702691CA41BC70018C34F /* ArticleCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,8 +276,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71B702641CA411AB0018C34F /* Article.swift in Sources */,
 				7189971B1CA4014A0078F3D6 /* APIManager.swift in Sources */,
 				718997061CA3EBD70078F3D6 /* BaseAPIViewController.swift in Sources */,
+				71B7026A1CA41BC70018C34F /* ArticleCell.swift in Sources */,
 				718997041CA3EBD70078F3D6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

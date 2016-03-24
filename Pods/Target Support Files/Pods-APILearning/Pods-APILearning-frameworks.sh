@@ -85,7 +85,9 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-APILearning/SwiftHTTP.framework"
+  install_framework "Pods-APILearning/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-APILearning/SwiftHTTP.framework"
+  install_framework "Pods-APILearning/SwiftyJSON.framework"
 fi
