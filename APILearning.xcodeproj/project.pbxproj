@@ -15,6 +15,7 @@
 		7189971B1CA4014A0078F3D6 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7189971A1CA4014A0078F3D6 /* APIManager.swift */; };
 		71B702641CA411AB0018C34F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B702631CA411AB0018C34F /* Article.swift */; };
 		71B7026A1CA41BC70018C34F /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B702691CA41BC70018C34F /* ArticleCell.swift */; };
+		71B7026C1CA445270018C34F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B7026B1CA445270018C34F /* WebViewController.swift */; };
 		98407AB3141C3E6711C9806F /* Pods_APILearning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6200F89BA37F9B4B2AFED3A4 /* Pods_APILearning.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		7189971A1CA4014A0078F3D6 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = Classes/Managers/APIManager.swift; sourceTree = "<group>"; };
 		71B702631CA411AB0018C34F /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Article.swift; path = Classes/Models/Article.swift; sourceTree = "<group>"; };
 		71B702691CA41BC70018C34F /* ArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArticleCell.swift; path = Classes/Views/ArticleCell.swift; sourceTree = "<group>"; };
+		71B7026B1CA445270018C34F /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = Classes/Controllers/WebViewController.swift; sourceTree = "<group>"; };
 		8B177B06042F0C3566E38ACC /* Pods-APILearning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APILearning.release.xcconfig"; path = "Pods/Target Support Files/Pods-APILearning/Pods-APILearning.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				718997051CA3EBD70078F3D6 /* BaseAPIViewController.swift */,
+				71B7026B1CA445270018C34F /* WebViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71B702641CA411AB0018C34F /* Article.swift in Sources */,
+				71B7026C1CA445270018C34F /* WebViewController.swift in Sources */,
 				7189971B1CA4014A0078F3D6 /* APIManager.swift in Sources */,
 				718997061CA3EBD70078F3D6 /* BaseAPIViewController.swift in Sources */,
 				71B7026A1CA41BC70018C34F /* ArticleCell.swift in Sources */,

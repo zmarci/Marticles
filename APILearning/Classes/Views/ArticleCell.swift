@@ -15,6 +15,8 @@ class ArticleCell: UITableViewCell
     //MARK: IBOutlets
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var urlLabel: UILabel!
     
     //MARK: Life-cycle
     

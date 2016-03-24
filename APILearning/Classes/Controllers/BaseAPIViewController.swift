@@ -17,7 +17,11 @@ class BaseAPIViewController: UIViewController
     private var cellIdentifier      = ""
     private var articleCellID       = "ArticleCell"
     
-    private var articleCellHeight   : CGFloat = 120
+    private var articleCellHeight   : CGFloat = 150
+    
+    private let webSegue            = "webSegue"
+    
+    private var selectedArticle     : Article?
     
     //MARK: IBOutlets
     
@@ -47,7 +51,7 @@ class BaseAPIViewController: UIViewController
     //MARK: IBActions
     
     //MARK: Initialization
-    
+
     func setupViews()
     {
         //TABLEVIEW
@@ -56,6 +60,20 @@ class BaseAPIViewController: UIViewController
         //DELEGATION
         tableView.delegate      = self
         tableView.dataSource    = self
+    }
+    
+    //MARK: Segue Handling
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == webSegue
+        {
+            guard let destinationVC = segue.destinationViewController as? WebViewController, article = selectedArticle else
+            {
+                return
+            }
+            destinationVC.articleURL = article.url
+        }
     }
 }
 
@@ -93,7 +111,8 @@ extension BaseAPIViewController: UITableViewDelegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        print("\(indexPath.section) section, \(indexPath.row) row")
+        selectedArticle = articleArray[indexPath.row]
+        performSegueWithIdentifier(webSegue, sender: self)
     }
 }
 
@@ -110,9 +129,11 @@ extension BaseAPIViewController: UITableViewDataSource
             cell = ArticleCell(style: .Default, reuseIdentifier: cellIdentifier)
         }
         
-        let article = articleArray[indexPath.row]
+        let article             = articleArray[indexPath.row]
+        cell?.contentLabel.text = article.desc
+        cell?.titleLabel.text   = article.title
+        cell?.urlLabel.text     = article.url
         
-        cell?.titleLabel.text = article.title
         return cell!
     }
 }
